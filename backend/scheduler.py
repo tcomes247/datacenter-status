@@ -1,28 +1,25 @@
+from email_parser import fetch_status_updates
+import threading
+import time
+from app import INCIDENTS
 
-from apscheduler.schedulers.blocking import BlockingScheduler
-from email import message_from_bytes
-from imaplib import IMAP4_SSL
-from dotenv import load_dotenv
-import os
+REFRESH_INTERVAL = 120  # seconds
 
-load_dotenv()
+def scheduler_loop():
+    while True:
+        try:
+            updates = fetch_status_updates()
 
-EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_PASS = os.getenv("EMAIL_PASS")
-IMAP_SERVER = os.getenv("IMAP_SERVER")
+            if updates:  # Only update if parsing was successful
+                for provider, data in updates.items():
+                    INCIDENTS[provider]["status"] = data.get("status", "Unknown")
+                    INCIDENTS[provider]["message"] = data.get("message", "")
+        except Exception as e:
+            print("Scheduler error:", e)
 
-def fetch_emails():
-    with IMAP4_SSL(IMAP_SERVER) as mail:
-        mail.login(EMAIL_USER, EMAIL_PASS)
-        mail.select("inbox")
-        status, messages = mail.search(None, 'UNSEEN')
-        for num in messages[0].split():
-            status, data = mail.fetch(num, '(RFC822)')
-            msg = message_from_bytes(data[0][1])
-            print("Fetched email from:", msg["From"])
+        time.sleep(REFRESH_INTERVAL)
 
-scheduler = BlockingScheduler()
-scheduler.add_job(fetch_emails, 'interval', minutes=10)
 
-if __name__ == "__main__":
-    scheduler.start()
+def start_scheduler():
+    t = threading.Thread(target=scheduler_loop, daemon=True)
+    t.start()
