@@ -1,0 +1,67 @@
+EMAIL_ADDRESS=example@example
+EMAIL_PASSWORD=......
+IMAP_SERVER=outlook.office365.com
+IMAP_PORT=993
+REFRESH_INTERVAL=120
+
+SMTP_SERVER=smtp-mail.outlook.com
+SMTP_PORT=587
+SMTP_EMAIL=example@example
+SMTP_PASSWORD=......
+
+PROVIDER_1_NAME=GlobalConnect
+PROVIDER_1_EMAIL=providerone@example.com
+
+PROVIDER_2_NAME=Bollnäs
+PROVIDER_2_EMAIL=providertwo@example.com
+
+PROVIDER_3_NAME=Fiberstaden
+PROVIDER_3_EMAIL=driftinfo@fiberstaden.net
+
+PROVIDER_4_NAME=Fibra
+PROVIDER_4_EMAIL=four@example.com
+
+PROVIDER_5_NAME=Itux
+PROVIDER_5_EMAIL=five@example.com
+
+PROVIDER_6_NAME=Karlsskoga
+PROVIDER_6_EMAIL=six@example.com
+
+PROVIDER_7_NAME=Mittnät
+PROVIDER_7_EMAIL=seven@example.com
+
+PROVIDER_8_NAME=Kramfors Mediateknik
+PROVIDER_8_EMAIL=eight@example.com
+
+PROVIDER_9_NAME=Kurbit
+PROVIDER_9_EMAIL=nine@example.com
+
+PROVIDER_10_NAME=OpenInfra
+PROVIDER_10_EMAIL=ten@example.com
+
+PROVIDER_11_NAME=OpenUniverse
+PROVIDER_11_EMAIL=eleven@example.com
+
+PROVIDER_12_NAME=Övik Energi
+PROVIDER_12_EMAIL=twelve@example.com
+
+PROVIDER_13_NAME=Sandnet
+PROVIDER_13_EMAIL=thirteen@example.com
+
+PROVIDER_14_NAME=Servanet
+PROVIDER_14_EMAIL=no-reply@serva.net
+
+PROVIDER_15_NAME=Skelleftea EjAktiv
+PROVIDER_15_EMAIL=fifteen@example.com
+
+PROVIDER_16_NAME=Sollefteå
+PROVIDER_16_EMAIL=sixteen@example.com
+
+PROVIDER_17_NAME=Streami StrömstaNet
+PROVIDER_17_EMAIL=joakim.engstrom@streemi.se
+
+PROVIDER_18_NAME=Telia Används
+PROVIDER_18_EMAIL=seventeen@example.com
+
+PROVIDER_19_NAME=Zitius
+PROVIDER_19_EMAIL=eighteen@example.com
