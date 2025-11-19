@@ -36,7 +36,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-title">Datacenter Status Overview</h1>
+      <h1 className="dashboard-title">Datacenter Network Status </h1>
 
       <AutoRefreshWrapper refreshKey={timestamp}>
         <div className="status-grid">
