@@ -2,12 +2,14 @@
   background: #ffffff;
   border-radius: 14px;
   padding: 18px;
-  width: 270px;
+  width: 440px;           /* UPDATED */
+  height: 220px;          /* ADDED */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  font-size: 16px;        /* ADDED default font size */
 }
 
 /* Waiting (yellow) */
@@ -33,14 +35,14 @@
 }
 
 .status-title {
-  font-size: 1.2rem;
+  font-size: 16px;        /* UPDATED */
   margin: 0;
   font-weight: 600;
 }
 
 .status-details p {
   margin: 4px 0;
-  font-size: 0.95rem;
+  font-size: 16px;        /* UPDATED */
 }
 
 .incident-section {
@@ -52,6 +54,7 @@
   border-radius: 10px;
   margin-top: 10px;
   border-left: 4px solid #ffb02e;
+  font-size: 16px;        /* ADDED */
 }
 
 .incident-icon {
