@@ -1,50 +1,50 @@
+/* Reset + font */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
-/* Center Title */
-.title-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-h1 {
+/* Title styling */
+.dashboard-title {
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 40px;
+    margin: 40px 0 30px 0;
 }
 
-/* Grid Layout */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-}
-
-/* Cards */
-.card {
-    width: 440px;
-    height: 220px;
-    background: #FFF6D5;
-    border-radius: 12px;
+/* Page wrapper */
+.dashboard-container {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    align-items: center;
 }
 
-.card-title {
-    font-size: 18px;
-    font-weight: bold;
+/* Card grid */
+.status-grid {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
 }
 
-.card-status {
-    margin-top: 10px;
-    font-size: 16px;
+/* Desktop – 5 columns */
+@media (min-width: 1200px) {
+    .status-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Tablets – 3 columns */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .status-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile – 1 column */
+@media (max-width: 767px) {
+    .status-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
