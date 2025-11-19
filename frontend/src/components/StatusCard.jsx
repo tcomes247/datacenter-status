@@ -1,35 +1,41 @@
 import UpIcon from "../assets/Up.png";
 import DownIcon from "../assets/Down.png";
-import IncidentIcon from "../assets/Incident.png";
+import WaitingIcon from "../assets/Waiting.png";   // <-- Add a waiting icon
 import "./StatusCard.css";
 
-export default function StatusCard({ dc, incidents = [] }) {
-  const isDown = dc.status.toLowerCase() === "down";
+export default function StatusCard({ incident }) {
+  const { provider, status, subject } = incident;
 
-  const dcIncidents = incidents.filter(i => i.datacenter_id === dc.id);
+  // Normalize status (ensure consistent lowercase)
+  const normalized = status.toLowerCase();
+
+  const isUp = normalized === "up";
+  const isDown = normalized === "down";
+  const isWaiting = normalized === "waiting";
+
+  // Choose icon
+  const icon =
+    isDown ? DownIcon :
+    isWaiting ? WaitingIcon :
+    UpIcon;
 
   return (
-    <div className="status-card">
+    <div className={`status-card 
+      ${isDown ? "down" : ""} 
+      ${isWaiting ? "waiting" : ""}`}>
+
       <div className="status-header">
-        <img
-          src={isDown ? DownIcon : UpIcon}
-          alt="status"
-          className="status-icon"
-        />
-        <h2 className="status-title">{dc.name}</h2>
+        <img src={icon} alt="status" className="status-icon" />
+        <h2 className="status-title">{provider}</h2>
       </div>
 
       <div className="status-details">
-        <p><strong>Status:</strong> {dc.status}</p>
-        <p><strong>Location:</strong> {dc.location}</p>
-      </div>
+        <p><strong>Status:</strong> {status}</p>
 
-      {dcIncidents.length > 0 && (
-        <div className="incident-section">
-          <img src={IncidentIcon} className="incident-icon" alt="incident" />
-          <p>{dcIncidents.length} Active Incident(s)</p>
-        </div>
-      )}
+        {subject && subject !== "" && (
+          <p><strong>Latest Message:</strong> {subject}</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -10,6 +10,12 @@
   gap: 12px;
 }
 
+/* Waiting (yellow) */
+.status-card.waiting {
+  border-left: 6px solid #f4c542;
+  background: #fff8dd;
+}
+
 .status-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);

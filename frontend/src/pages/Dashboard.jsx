@@ -4,29 +4,33 @@ import AutoRefreshWrapper from "../components/AutoRefreshWrapper";
 import "./Dashboard.css";
 
 export default function Dashboard() {
-  const [data, setData] = useState([]);
   const [incidents, setIncidents] = useState([]);
   const [timestamp, setTimestamp] = useState(Date.now());
 
   const apiBase = import.meta.env.VITE_API_BASE_URL;
 
   const loadStatus = async () => {
-    const res = await fetch(`${apiBase}/status`);
-    const json = await res.json();
-    setData(json.data);
-    setTimestamp(Date.now());
+    try {
+      const res = await fetch(`${apiBase}/status`);
+      const json = await res.json();
+
+      // Replace "Unknown" with "Waiting"
+      const cleaned = json.incidents.map(([provider, status, subject]) => [
+        provider,
+        status === "Unknown" ? "Waiting" : status,
+        subject,
+      ]);
+
+      setIncidents(cleaned);
+      setTimestamp(Date.now());
+    } catch (error) {
+      console.error("Error fetching /status:", error);
+    }
   };
 
   useEffect(() => {
-    fetch(`${apiBase}/incidents`)
-      .then(res => res.json())
-      .then(data => setIncidents(data))
-      .catch(err => console.error("Error loading incidents:", err));
-  }, [apiBase]);
-
-  useEffect(() => {
     loadStatus();
-    const interval = setInterval(loadStatus, 5005);
+    const interval = setInterval(loadStatus, 5000);
     return () => clearInterval(interval);
   }, [apiBase]);
 
@@ -36,9 +40,16 @@ export default function Dashboard() {
 
       <AutoRefreshWrapper refreshKey={timestamp}>
         <div className="status-grid">
-          {data.map(dc => (
-            <StatusCard key={dc.id} dc={dc} incidents={incidents} />
-          ))}
+          {incidents.map((item, index) => {
+            const [provider, status, subject] = item;
+
+            return (
+              <StatusCard
+                key={index}
+                incident={{ provider, status, subject }}
+              />
+            );
+          })}
         </div>
       </AutoRefreshWrapper>
     </div>
