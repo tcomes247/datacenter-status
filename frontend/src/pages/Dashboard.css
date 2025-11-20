@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #3b3b3b;   /* Dark grey background added */
+    background-color: #3b3b3b;   /* Dark grey background */
 }
 
 /* Title styling */
@@ -23,30 +23,12 @@ body {
     align-items: center;
 }
 
-/* Card grid */
+/* Responsive Grid — unlimited columns */
 .status-grid {
     display: grid;
     gap: 20px;
     justify-content: center;
-}
 
-/* Desktop – 5 columns */
-@media (min-width: 1200px) {
-    .status-grid {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-/* Tablets – 3 columns */
-@media (min-width: 768px) and (max-width: 1199px) {
-    .status-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Mobile – 1 column */
-@media (max-width: 767px) {
-    .status-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
+    /* This is the important part */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
