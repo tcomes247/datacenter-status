@@ -3,56 +3,49 @@
   background: #ffffff;
   border-radius: 14px;
   padding: 18px;
-  width: 330px;             /* UPDATED */
-  height: 180px;            /* UPDATED */
+  width: 280px;           /* UPDATED */
+  height: 226px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   font-size: 16px;
-  overflow: hidden;
 }
 
-/* Hover effect */
-.status-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
-/* Waiting (yellow status) */
+/* Waiting (yellow) */
 .status-card.waiting {
   border-left: 6px solid #f4c542;
   background: #fff8dd;
 }
 
-/* Header (icon + provider name) */
+.status-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
 .status-header {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Status icon */
 .status-icon {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 }
 
-/* Provider name */
 .status-title {
   font-size: 16px;
   margin: 0;
   font-weight: 600;
 }
 
-/* Status/subject text */
 .status-details p {
-  margin: 3px 0;
+  margin: 4px 0;
   font-size: 16px;
 }
 
-/* Incident box (only shown for non-Up statuses) */
 .incident-section {
   display: flex;
   align-items: center;
@@ -60,13 +53,12 @@
   background: #fff3cd;
   padding: 8px;
   border-radius: 10px;
-  margin-top: auto;     /* ensures it sticks to the bottom */
+  margin-top: 10px;
   border-left: 4px solid #ffb02e;
   font-size: 16px;
 }
 
-/* Warning triangle icon */
 .incident-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
