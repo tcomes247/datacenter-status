@@ -6,8 +6,9 @@
   border-radius: 14px;
   padding: 18px;
 
-  width: 315px;
-  height: 190px;     /* UPDATED */
+  /* ✅ Make card flexible but preserve good structure */
+  min-width: 260px;      /* card will shrink but stay readable */
+  min-height: 180px;     /* optional: keep layout stable */
 
   display: flex;
   flex-direction: column;
