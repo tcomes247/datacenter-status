@@ -27,8 +27,14 @@ body {
 .status-grid {
     display: grid;
     gap: 20px;
-    justify-content: center;
 
-    /* This is the important part */
+    /* Perfect centering */
+    justify-content: center;
+    justify-items: center;
+
+    /* Unlimited responsive columns */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    width: 100%;
+    max-width: 2000px; /* Optional: keeps perfect balance on very large screens */
 }
