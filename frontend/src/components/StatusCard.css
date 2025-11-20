@@ -1,29 +1,40 @@
-/* Main card */
+/* -----------------------------------------
+   MAIN CARD
+------------------------------------------ */
 .status-card {
   background: #ffffff;
   border-radius: 14px;
   padding: 18px;
-  width: 315px;           /* UPDATED */
-  height: 190px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  width: 315px;
+  height: 190px;     /* UPDATED */
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;   /* NEW — keeps content perfectly spaced */
+
   gap: 12px;
   font-size: 16px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Waiting (yellow) */
-.status-card.waiting {
-  border-left: 6px solid #f4c542;
-  background: #fff8dd;
-}
-
+/* Hover effect */
 .status-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
+/* Waiting (yellow box) */
+.status-card.waiting {
+  border-left: 6px solid #f4c542;
+  background: #fff8dd;
+}
+
+/* -----------------------------------------
+   HEADER (icon + provider)
+------------------------------------------ */
 .status-header {
   display: flex;
   align-items: center;
@@ -41,20 +52,28 @@
   font-weight: 600;
 }
 
+/* -----------------------------------------
+   DETAILS TEXT
+------------------------------------------ */
 .status-details p {
-  margin: 4px 0;
+  margin: 2px 0;          /* tightened for better fit */
   font-size: 16px;
 }
 
+/* -----------------------------------------
+   YELLOW INCIDENT SECTION
+------------------------------------------ */
 .incident-section {
   display: flex;
   align-items: center;
   gap: 8px;
+
   background: #fff3cd;
-  padding: 8px;
+  padding: 8px;           /* reduced to fit 190px height nicely */
   border-radius: 10px;
-  margin-top: 10px;
   border-left: 4px solid #ffb02e;
+
+  margin-top: 8px;
   font-size: 16px;
 }
 
