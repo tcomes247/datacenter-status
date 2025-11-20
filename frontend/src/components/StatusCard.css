@@ -2,8 +2,8 @@
   background: #ffffff;
   border-radius: 14px;
   padding: 18px;
-  width: 320px;           /* UPDATED */
-  height: 190px;          /* ADDED */
+  width: 360px;           /* UPDATED */
+  height: 226px;          /* ADDED */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
