@@ -20,6 +20,13 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.dashboard-title {
+  text-align: center;
+  font-size: 32px;     /* UPDATED */
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
 /* Hover effect */
 .status-card:hover {
   transform: translateY(-4px);
