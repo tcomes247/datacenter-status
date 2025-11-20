@@ -6,13 +6,13 @@
   border-radius: 14px;
   padding: 18px;
 
-  /* ✅ Make card flexible but preserve good structure */
-  min-width: 260px;      /* card will shrink but stay readable */
-  min-height: 180px;     /* optional: keep layout stable */
+  /* Flexible but readable */
+  min-width: 260px;
+  min-height: 180px;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;   /* NEW — keeps content perfectly spaced */
+  justify-content: space-between;
 
   gap: 12px;
   font-size: 16px;
@@ -57,7 +57,7 @@
    DETAILS TEXT
 ------------------------------------------ */
 .status-details p {
-  margin: 2px 0;          /* tightened for better fit */
+  margin: 2px 0;
   font-size: 16px;
 }
 
@@ -70,7 +70,7 @@
   gap: 8px;
 
   background: #fff3cd;
-  padding: 8px;           /* reduced to fit 190px height nicely */
+  padding: 8px;
   border-radius: 10px;
   border-left: 4px solid #ffb02e;
 
@@ -81,4 +81,12 @@
 .incident-icon {
   width: 22px;
   height: 22px;
+}
+
+/* -----------------------------------------
+   FORCE ALL TEXT INSIDE CARDS TO BLACK
+------------------------------------------ */
+.status-card,
+.status-card * {
+  color: #000000 !important;
 }
