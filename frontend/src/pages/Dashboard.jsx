@@ -8,6 +8,9 @@ export default function Dashboard() {
   const [timestamp, setTimestamp] = useState(Date.now());
 
   const apiBase = import.meta.env.VITE_API_BASE_URL;
+  if (import.meta.env.DEV) {
+  console.log("VITE_API_BASE_URL:", import.meta.env.VITE_API_BASE_URL);
+}
 
   const loadStatus = async () => {
     try {
