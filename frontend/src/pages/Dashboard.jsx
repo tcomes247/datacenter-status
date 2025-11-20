@@ -9,8 +9,8 @@ export default function Dashboard() {
 
   const apiBase = import.meta.env.VITE_API_BASE_URL;
   if (import.meta.env.DEV) {
-  console.log("VITE_API_BASE_URL:", import.meta.env.VITE_API_BASE_URL);
-}
+    console.log("VITE_API_BASE_URL:", import.meta.env.VITE_API_BASE_URL);
+  }
 
   const loadStatus = async () => {
     try {
@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     loadStatus();
-    const interval = setInterval(loadStatus, 5000);
+    const interval = setInterval(loadStatus, 120000); // ← UPDATED: 2 minutes
     return () => clearInterval(interval);
   }, [apiBase]);
 
